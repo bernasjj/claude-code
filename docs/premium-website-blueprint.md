@@ -209,18 +209,84 @@ Antes de dar o site como pronto ao cliente:
 
 ---
 
-## 10. Padrões específicos de referência (@webloved)
+## 10. Padrões de referência (@weblove e afins)
 
-> **A preencher com o material que o cliente fornecer.**
->
-> Não foi possível aceder diretamente ao perfil TikTok (bloqueio HTTP 403), por
-> isso esta secção deve ser preenchida a partir dos prints/descrições que o
-> dono da agência partilhar. Objetivo: capturar os *padrões* recorrentes
-> (tipo de hero, paleta, ritmo de secções, estilo de animação) e **adaptá-los**
-> ao sistema acima — não copiar designs proprietários específicos verbatim.
+> Padrões extraídos das gravações partilhadas pelo dono da agência (perfil
+> @weblove no TikTok + inspiração de UI/UX). **Objetivo: replicar os
+> *princípios* e o nível de acabamento — não copiar verbatim designs
+> proprietários de marcas reais** (ex.: Cartier, ECCO). Os designs originais dele
+> são gerados com ferramentas de IA (Lovable, Claude) + Spline/3D; aqui
+> traduzimos essas assinaturas para a stack da agência (**HTML/CSS/JS puro**).
 
-- Estilo de hero observado: _(preencher)_
-- Paleta e tipografia dominantes: _(preencher)_
-- Estrutura/ordem de secções recorrente: _(preencher)_
-- Tom de copy e CTA: _(preencher)_
-- Assinaturas de movimento/animação: _(preencher)_
+### 10.1 O que torna estes sites "premium" (a assinatura dele)
+
+1. **Nichos de alto valor:** carros de importação, joalharia/relojoaria de luxo,
+   imobiliário. Copy e imagética falam de estatuto, confiança e exclusividade.
+2. **Hero imersivo com 3D:** peça central 3D interativa (carro, relógio, joia)
+   que reage ao rato/scroll. É o "efeito uau" que justifica o preço.
+3. **Storytelling por cenas de scroll (parallax):** a página desenrola-se como
+   uma sequência de *cenas* (ele estrutura, p.ex., em ~6 cenas 3D). Cada bloco
+   revela um objeto/mensagem à medida que se faz scroll.
+4. **Duas famílias de estética:**
+   - **Escura / cinematográfica** — fundo quase preto, um único acento metálico
+     (dourado/âmbar), muito contraste, iluminação dramática. (ref.: AUTOKLASA)
+   - **Clara / galeria** — fundo off-white, muito whitespace, serif elegante,
+     objeto a "flutuar" com sombra suave. (ref.: joalharia de luxo)
+5. **Tipografia grande e confiante:** display oversized no hero; serif para luxo,
+   sans geométrica para tech/produto.
+6. **Prova social forte:** bloco de testemunhos com *reviews estilo Google*
+   (avatar, nome, estrelas, citação curta).
+7. **Fecho consistente:** FAQ em acordeão → secção de contacto com **formulário**
+   → footer organizado (mapa do site, redes sociais, legal, © ano).
+
+### 10.2 Estrutura de página aplicada (mapeada às secções §2)
+
+```
+Navbar (sticky, translúcida)  → logo + O firme/Oferta/Blog/Opinie/Kontakt + CTA
+Hero 3D imersivo              → headline oversized + subheadline + CTA + objeto 3D
+Showcase / cena escura        → destaque de produto com iluminação dramática
+Cenas de scroll (parallax)    → 3–6 blocos que revelam objeto+texto ao fazer scroll
+Prova social                  → testemunhos estilo Google (avatar, estrelas)
+Contacto                      → morada + contactos + formulário funcional
+FAQ                           → acordeão (4–8 perguntas)
+Footer                        → mapa do site + redes + legal + © ano
+```
+
+### 10.3 Como fazer o 3D/parallax em HTML/CSS/JS puro (sem Lovable)
+
+- **Objeto 3D no hero:** duas opções.
+  - *Simples/rápido:* embeber uma cena **Spline** via `<iframe>` ou o
+    `<spline-viewer>` web component (script `@splinetool/viewer`). Definir
+    `loading="lazy"` e um `poster`/fallback estático para performance.
+  - *Controlo total/leve:* **Three.js** com um modelo `.glb` (usar
+    `GLTFLoader` + `OrbitControls` desativados, rotação ligada ao scroll/rato).
+    Servir o `.glb` comprimido (Draco) e só inicializar quando o hero entra no
+    viewport.
+- **Cenas de scroll / parallax:** preferir **scroll-driven animations** nativas
+  do CSS (`animation-timeline: view()` / `scroll()`), com fallback por
+  `IntersectionObserver` que adiciona `.is-visible` a cada `.scene`. Movimento
+  de camadas com `transform: translate3d()` (nunca `top/left`), a diferentes
+  velocidades por camada.
+- **Sempre** respeitar `@media (prefers-reduced-motion: reduce)`: desligar
+  parallax e auto-rotação, mostrar a imagem/poster estático.
+- **Performance:** o 3D é pesado — lazy-init, `poster` estático até interação,
+  e manter o alvo Lighthouse (§6). Se o `.glb` for grande, degradar para
+  imagem/vídeo curto em mobile.
+
+### 10.4 Blocos reutilizáveis a ter no kit
+
+- **Hero 3D** (com poster fallback e CTA duplo: primário + "ver oferta").
+- **Card de testemunho estilo Google** (avatar, nome, 5 estrelas, data, citação).
+- **Acordeão de FAQ** acessível (`<details>/<summary>` ou `button`+`aria-expanded`).
+- **Formulário de contacto** com validação e estados de sucesso/erro.
+- **Bento-grid** para portefólio/serviços (ref. inspiração "DESIGNTHINKING®":
+  cartões de tamanhos variados, 1 destaque grande + apoios).
+- **Hero de produto flutuante** (produto com sombra suave sobre fundo/gradiente
+  arejado — ref. inspiração ECCO: "Stay in control").
+
+### 10.5 Aviso de propriedade intelectual
+
+Estes exemplos usam marcas reais apenas como **referência de estilo**. Para
+clientes, criar identidade, copy, imagética e modelos 3D **originais** (ou
+devidamente licenciados). Não reproduzir logótipos, fotografias ou textos de
+marcas de terceiros.

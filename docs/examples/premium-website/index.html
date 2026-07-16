@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lumía Motors — Importação de automóveis premium</title>
+  <meta name="description" content="Importamos automóveis premium à medida, com processo transparente e entrega chave-na-mão. Exemplo do premium-website-blueprint." />
+
+  <!-- Open Graph (blueprint §7) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Lumía Motors — Importação de automóveis premium" />
+  <meta property="og:description" content="Importação de automóveis premium à medida, chave-na-mão." />
+  <meta property="og:image" content="assets/og-image.png" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>◈</text></svg>" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ============ Navbar ============ -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#top">Lumía<span>Motors</span></a>
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#firma">A empresa</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#opinioes">Opiniões</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ Hero 3D imersivo ============ -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="reveal">
+          <span class="eyebrow">Importação premium · desde 2018</span>
+          <h1 class="hero__title">O carro dos teus sonhos, <em>importado à medida</em>.</h1>
+          <p class="hero__lead">Encontramos, inspecionamos e entregamos automóveis premium de toda a Europa — com processo transparente e garantia.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#contacto">Pedir proposta →</a>
+            <a class="btn btn--ghost" href="#oferta">Ver oferta</a>
+          </div>
+        </div>
+
+        <!-- Objeto "3D" interativo — trocar por Spline/Three.js em produção (§10.3) -->
+        <div class="stage reveal" aria-hidden="true">
+          <div class="obj3d">
+            <div class="obj3d__face">
+              <div class="obj3d__ring"></div>
+              <div class="obj3d__label">◈ LUMÍA</div>
+              <div class="obj3d__sub">Configurador 3D — arrasta / passa o rato</div>
+            </div>
+            <div class="obj3d__shadow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Faixa de prova social ============ -->
+    <section class="trust">
+      <div class="container trust__row">
+        <span class="trust__stat"><b>+600</b> carros entregues</span>
+        <span class="trust__stat"><b>4.9/5</b> em 210 avaliações Google</span>
+        <span class="trust__stat"><b>14</b> países de origem</span>
+        <span class="trust__stat"><b>100%</b> inspeção pré-compra</span>
+      </div>
+    </section>
+
+    <!-- ============ Cenas de scroll (parallax) ============ -->
+    <section class="section container" id="oferta">
+      <div class="reveal">
+        <span class="eyebrow">Como funciona</span>
+        <h2 class="section__title">Uma experiência pensada ao detalhe</h2>
+        <p class="section__lead">Cada etapa é uma cena — do primeiro contacto à entrega chave-na-mão.</p>
+      </div>
+
+      <div style="margin-top: var(--space-8)">
+        <article class="scene reveal">
+          <div class="scene__media"><span>Cena 01</span></div>
+          <div>
+            <h3 class="scene__title">Procura sob medida</h3>
+            <p class="scene__text">Definimos o teu perfil e vasculhamos leilões e stands europeus até encontrar a viatura certa, ao preço certo.</p>
+          </div>
+        </article>
+
+        <article class="scene scene--reverse reveal">
+          <div class="scene__media"><span>Cena 02</span></div>
+          <div>
+            <h3 class="scene__title">Inspeção independente</h3>
+            <p class="scene__text">Relatório técnico completo, histórico verificado e fotografias reais antes de qualquer decisão.</p>
+          </div>
+        </article>
+
+        <article class="scene reveal">
+          <div class="scene__media"><span>Cena 03</span></div>
+          <div>
+            <h3 class="scene__title">Legalização e entrega</h3>
+            <p class="scene__text">Tratamos do transporte, impostos e matrícula. Recebes o carro pronto a conduzir, à tua porta.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Testemunhos estilo Google ============ -->
+    <section class="section container" id="opinioes">
+      <div class="reveal">
+        <span class="eyebrow">Opiniões de clientes</span>
+        <h2 class="section__title">Confiança conquistada, carro a carro</h2>
+      </div>
+      <div class="testi__grid">
+        <figure class="review reveal">
+          <div class="review__head">
+            <div class="review__avatar">JR</div>
+            <div><div class="review__name">João R.</div><div class="review__meta">Google · há 2 meses</div></div>
+          </div>
+          <div class="review__stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <blockquote class="review__text">Processo impecável do início ao fim. O relatório de inspeção deu-me total confiança.</blockquote>
+        </figure>
+        <figure class="review reveal">
+          <div class="review__head">
+            <div class="review__avatar">AS</div>
+            <div><div class="review__name">Ana S.</div><div class="review__meta">Google · há 3 semanas</div></div>
+          </div>
+          <div class="review__stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <blockquote class="review__text">Poupei milhares e recebi o carro em casa já legalizado. Recomendo sem reservas.</blockquote>
+        </figure>
+        <figure class="review reveal">
+          <div class="review__head">
+            <div class="review__avatar">MP</div>
+            <div><div class="review__name">Miguel P.</div><div class="review__meta">Google · há 1 mês</div></div>
+          </div>
+          <div class="review__stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <blockquote class="review__text">Comunicação transparente e sempre disponíveis. Já é o segundo carro que importo com eles.</blockquote>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ FAQ acordeão ============ -->
+    <section class="section container" id="faq">
+      <div class="reveal" style="text-align:center">
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2 class="section__title">Tudo o que precisas de saber</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>De onde vêm os automóveis que importam?</span><span class="icon">+</span></button>
+          <div class="faq__a"><p>De stands, leilões e particulares em 14 países europeus, com histórico sempre verificado.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>Porque vale a pena comprar do estrangeiro?</span><span class="icon">+</span></button>
+          <div class="faq__a"><p>Maior oferta, melhores especificações e, muitas vezes, um preço final mais competitivo mesmo com impostos incluídos.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>E se não encontrar o carro que quero?</span><span class="icon">+</span></button>
+          <div class="faq__a"><p>Fazemos procura ativa sob medida até encontrar a viatura com o teu perfil exato.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>Tratam da legalização e matrícula?</span><span class="icon">+</span></button>
+          <div class="faq__a"><p>Sim. Entregamos o carro chave-na-mão, já legalizado e com matrícula nacional.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contacto + formulário ============ -->
+    <section class="section container" id="contacto">
+      <div class="contact__grid">
+        <div class="reveal">
+          <span class="eyebrow">Fala connosco</span>
+          <h2 class="section__title">Peça a sua proposta</h2>
+          <p class="section__lead">Resposta em menos de 24h úteis.</p>
+          <ul class="contact__info" style="margin-top: var(--space-5)">
+            <li>📍 <span>Av. da Liberdade 120, Lisboa</span></li>
+            <li>📞 <b>+351 210 000 000</b></li>
+            <li>✉️ <b>ola@lumiamotors.example</b></li>
+          </ul>
+        </div>
+
+        <form class="form reveal" novalidate>
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" placeholder="O seu nome" required minlength="2" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="email@exemplo.pt" required />
+          </div>
+          <div class="field">
+            <label for="msg">Que carro procura?</label>
+            <textarea id="msg" name="msg" rows="4" placeholder="Marca, modelo, orçamento…" required minlength="10"></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Enviar pedido →</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="#top">Lumía<span>Motors</span></a>
+          <p style="color: var(--color-muted); font-size: var(--fs-sm); margin-top: var(--space-3); max-width: 34ch;">Importação de automóveis premium à medida, com processo transparente e entrega chave-na-mão.</p>
+        </div>
+        <div>
+          <h4>Páginas</h4>
+          <a href="#oferta">Oferta</a>
+          <a href="#opinioes">Opiniões</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <div>
+          <h4>Redes sociais</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__bottom">© <span data-year>2026</span> Lumía Motors (exemplo fictício). Construído a partir do premium-website-blueprint.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
